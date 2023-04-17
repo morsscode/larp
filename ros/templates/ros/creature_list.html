@@ -1,0 +1,18 @@
+{% extends "base_bootstrap.html" %}
+{% block content %}
+<h1>Creatures</h1>
+<p>
+{% if creature_list %}
+<ul>
+  {% for creature in creature_list %}
+    <li>
+        <p>{{ creature.name }}</p>
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>There are no creatures in the database.</p>
+{% endif %}
+</p>
+{% endblock %}
+</html>

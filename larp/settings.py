@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',
     'ros.apps.RosConfig',
     'django.contrib.admin',
     'django.contrib.auth',
