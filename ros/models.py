@@ -6,6 +6,8 @@ class Creature(models.Model):
             max_length=200,
             validators=[MinLengthValidator(2, "Creature must be greater than 1 character")]
     )
+    details = models.TextField(default="")
+    #moredetails = models.CharField()
 
     def __str__(self):
         return self.name

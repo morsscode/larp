@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Creatures</title>
+    <title>Skills</title>
 </head>
 {% extends "base_bootstrap.html" %}
 {% block content %}
-<h1>Creatures</h1>
+<h1>Skills</h1>
 <p>
-{% if creature_list %}
+{% if skill_list %}
 <ul>
-  {% for creature in creature_list %}
+  {% for skill in skill_list %}
     <li>
-        <p>{{ creature.name }}</p>
+        <p>{{ skill.name }}</p>
     </li>
   {% endfor %}
 </ul>
 {% else %}
-  <p>There are no creatures in the database.</p>
+  <p>There are no skills in the database.</p>
 {% endif %}
 </p>
 {% endblock %}

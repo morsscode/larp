@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from ros.models import Creature
 
-from ros.models import Creature
+from ros.models import Creature, Spell, Skill
 from ros.owner import OwnerListView, OwnerDetailView
 #from autos.forms import MakeForm
 
@@ -15,4 +15,8 @@ from ros.owner import OwnerListView, OwnerDetailView
 class CreatureListView(OwnerListView):
     model = Creature
     # By convention:
-    # template_name = "myarts/article_list.html"
+    # template_name = "ros/creature_list.html"
+class SpellListView(OwnerListView):
+    model = Spell
+class SkillListView(OwnerListView):
+    model = Skill
