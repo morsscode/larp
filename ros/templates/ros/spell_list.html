@@ -12,7 +12,7 @@
 <ul>
   {% for spell in spell_list %}
     <li>
-        <p>{{ spell.name }}</p>
+        <a href="{% url 'ros:spell_detail' spell.id %}">{{ spell.name }}</a>
     </li>
   {% endfor %}
 </ul>

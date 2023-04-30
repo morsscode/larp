@@ -12,7 +12,8 @@
 <ul>
   {% for creature in creature_list %}
     <li>
-        <p>{{ creature.name }}</p>
+        <a href="{% url 'ros:creature_detail' creature.id %}">{{ creature.name }}</a>
+
     </li>
   {% endfor %}
 </ul>

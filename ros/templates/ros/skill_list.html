@@ -12,7 +12,7 @@
 <ul>
   {% for skill in skill_list %}
     <li>
-        <p>{{ skill.name }}</p>
+        <a href="{% url 'ros:skill_detail' skill.id %}">{{ skill.name }}</a>
     </li>
   {% endfor %}
 </ul>

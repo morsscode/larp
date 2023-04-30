@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creature detail</title>
+{% extends "base_bootstrap.html" %}
+{% block content %}
+<h1>{{creature.name}}</h1>
+</head>
+
+<body>
+<p>
+<p>creature: {{creature.name}}</p>
+<p>Notes: {{creature.details}}</p>
+</p>
+
+</body>
+{% endblock %}
+</html>
