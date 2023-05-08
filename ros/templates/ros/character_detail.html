@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creature detail</title>
+{% extends "base_bootstrap.html" %}
+{% block content %}
+<h1>{{character.CharacterName}}</h1>
+</head>
+
+<body>
+<p>Player Name: {{character.playerName}}</p>
+<p>Character Name: {{character.CharacterName}}</p>
+<p>Experience: {{character.xp}}</p>
+<p>Rep: {{character.rep}}</p>
+<p>Virtue: {{character.virtue}}</p>
+<p>Spells: </p>
+  {% for spell in character.spells.all %}
+    <ul>
+        <p>{{spell.name}}</p>
+    </ul>
+  {% endfor %}
+</body>
+{% endblock %}
+</html>

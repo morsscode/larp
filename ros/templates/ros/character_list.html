@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creatures</title>
+</head>
+{% extends "base_bootstrap.html" %}
+{% block content %}
+<h1>Characters</h1>
+<p>
+{% if character_list %}
+<ul>
+  {% for character in character_list %}
+    <li>
+        <a href="{% url 'ros:character_detail' character.id %}">{{ character.CharacterName }}</a>
+
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>There are no creatures in the database.</p>
+{% endif %}
+</p>
+{% endblock %}
+</html>

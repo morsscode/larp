@@ -11,4 +11,6 @@ urlpatterns = [
     path('spells/<int:pk>', views.SpellDetailView.as_view(), name='spell_detail'),
     path('skills', views.SkillListView.as_view(), name='skills'),
     path('skills/<int:pk>', views.SkillDetailView.as_view(), name='skill_detail'),
+    path('characters', views.CharacterListView.as_view(), name='characters'),
+    path('characters/<int:pk>', views.CharacterDetailView.as_view(), name='character_detail'),
 ]

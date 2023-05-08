@@ -26,23 +26,33 @@ class Spell(models.Model):
         max_length=50,
         validators=[MinLengthValidator(2, "spell must be greater than 1 character")]
     )
+    #   level = models.IntegerField(default=1)
 
     def __str__(self):
         return self.name
 
+
 class Character(models.Model):
     playerName = models.CharField(
         max_length=50,
-        validators=[MinLengthValidator(2, "Skill must be greater than 1 character")]
+        validators=[MinLengthValidator(2, "Name must be greater than 1 character")]
     )
     CharacterName = models.CharField(
         max_length=50,
-        validators=[MinLengthValidator(2, "Skill must be greater than 1 character")]
+        validators=[MinLengthValidator(2, "Name must be greater than 1 character")]
     )
     virtue = models.IntegerField(default=50)
     rep = models.IntegerField(default=50)
     xp = models.IntegerField(default=0)
-    creatureType = models.ForeignKey(Creature, on_delete=models.CASCADE)
+    creatureType = models.ForeignKey(Creature, null=True, on_delete=models.SET_NULL)
+    spells = models.ManyToManyField(Spell, verbose_name="list of spells")
+    skills = models.ManyToManyField(Skill, verbose_name="list of skills")
 
     def __str__(self):
-        return self.PlayerName
+        return self.playerName
+
+
+class CharacterSpell(models.Model):
+    character = models.ForeignKey(Character, on_delete=models.CASCADE)
+    spell = models.ForeignKey(Spell, on_delete=models.CASCADE)
+    level = models.IntegerField(default=0)
