@@ -45,8 +45,8 @@ class Character(models.Model):
     rep = models.IntegerField(default=50)
     xp = models.IntegerField(default=0)
     creatureType = models.ForeignKey(Creature, null=True, on_delete=models.SET_NULL)
-    spells = models.ManyToManyField(Spell, verbose_name="list of spells")
-    skills = models.ManyToManyField(Skill, verbose_name="list of skills")
+    spells = models.ManyToManyField(Spell, through='CharacterSpell', verbose_name="list of spells")
+    skills = models.ManyToManyField(Skill, through='CharacterSkill', verbose_name="list of skills")
 
     def __str__(self):
         return self.playerName
@@ -55,4 +55,10 @@ class Character(models.Model):
 class CharacterSpell(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     spell = models.ForeignKey(Spell, on_delete=models.CASCADE)
+    level = models.IntegerField(default=0)
+
+
+class CharacterSkill(models.Model):
+    character = models.ForeignKey(Character, on_delete=models.CASCADE)
+    skill = models.ForeignKey(Skill, on_delete=models.CASCADE)
     level = models.IntegerField(default=0)

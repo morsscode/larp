@@ -15,9 +15,23 @@
         <a href="{% url 'ros:spell_detail' spell.id %}">{{ spell.name }}</a>
     </li>
   {% endfor %}
+
 </ul>
 {% else %}
   <p>There are no spells in the database.</p>
+{% endif %}
+</p>
+<p>
+{% if skills %}
+<ul>
+  {% for skill in skills %}
+    <li>
+        <a href="{% url 'ros:skill_detail' skill.id %}">{{ skill.name }}</a>
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>There are no skills in the database.</p>
 {% endif %}
 </p>
 {% endblock %}

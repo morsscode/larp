@@ -4,7 +4,7 @@ from django.views import View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
-from ros.models import Creature, Spell, Skill, Character
+from ros.models import Creature, Spell, Skill, Character, CharacterSpell
 from ros.owner import OwnerListView, OwnerDetailView
 #from autos.forms import MakeForm
 
@@ -17,6 +17,7 @@ class CreatureListView(OwnerListView):
 
 class SpellListView(OwnerListView):
     model = Spell
+    skills = Skill.objects.all().values()   
 
 
 class SkillListView(OwnerListView):
@@ -56,7 +57,9 @@ class CharacterDetailView(OwnerDetailView):
     template_name = "ros/character_detail.html"
     def get(self, request, pk) :
         x = Character.objects.get(id=pk)
-        context = {'character': x}
+        y = CharacterSpell.objects.all()
+        context = {'character': x,
+                   'spells': y}
         return render(request, self.template_name, context)
 
 
